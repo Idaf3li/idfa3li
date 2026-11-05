@@ -13,24 +13,24 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false)
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ name: '', phone: '', type: 'كهرباء', amount: '', desc: '' })
-
   const filtered = filter === 'الكل' ? cases : cases.filter(c => c.cat === filter)
+  const redBtn = { background: '#D61F2C', color: '#fff', backgroundImage: 'none' } as const
 
   return (
     <div>
       <header className="header">
         <div className="logo"><i>♥</i> ادفع لي</div>
         <nav className="nav"><a onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>من نحن</a><a href="#cases">الحالات</a><a href="#how">كيف نعمل</a><a href="#faq">الأمان</a><a href="#faq">أسئلة</a></nav>
-        <button className="btn btn-red" onClick={() => setShowForm(true)}>ارفع فاتورتك</button>
+        <button className="btn btn-red" style={redBtn} onClick={() => setShowForm(true)}>ارفع فاتورتك</button>
       </header>
 
-      <section className="hero">
+      <section className="hero" style={{ background: '#0A4D2A', backgroundImage: 'none', backgroundColor: '#0A4D2A', color: '#fff' }}>
         <span className="pill">● حالات موثّقة 100% - ادفع مباشرة للشركة</span>
-        <h1>منصة خيرية من أهل الأردن... لأهل الأردن<br />من نشامى الوطن... لأبناء الوطن</h1>
+        <h1 style={{ color: '#fff' }}>منصة خيرية من أهل الأردن... لأهل الأردن<br />من نشامى الوطن... لأبناء الوطن</h1>
         <p>تكفّل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للشركة.<br />لا أموال تمر عبر المنصة.</p>
-        <div className="values">تكافل • تراحم • تعاضد • إيثار</div>
+        <div className="values" style={{ color: '#FFE58A' }}>تكافل • تراحم • تعاضد • إيثار</div>
         <div className="cta">
-          <button className="btn btn-red big" onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}>♥ سأتكفل بفاتورة</button>
+          <button className="btn btn-red big" style={redBtn} onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}>♥ سأتكفل بفاتورة</button>
           <button className="btn btn-outline big" onClick={() => setShowForm(true)}>عندي فاتورة محتاج مساعدة فيها</button>
         </div>
       </section>
@@ -45,9 +45,9 @@ export default function Home() {
       <section className="section" id="how">
         <div className="card"><h2>كيف نعمل؟ 3 خطوات بسيطة</h2>
           <div className="steps">
-            <div><div className="num">1</div><b>اختر حالة</b><p>تصفح الحالات الموثقة واختر اللي حاب تساعد فيها</p></div>
-            <div><div className="num">2</div><b>ادفع مباشرة</b><p>ادفع فاتورة الكهرباء أو المياه أو الدواء مباشرة للشركة</p></div>
-            <div><div className="num">3</div><b>تأكيد وطمأنينة</b><p>نأكد سداد الفاتورة ونطمن العائلة</p></div>
+            <div><div className="num" style={redBtn}>1</div><b>اختر حالة</b><p>تصفح الحالات الموثقة واختر اللي حاب تساعد فيها</p></div>
+            <div><div className="num" style={redBtn}>2</div><b>ادفع مباشرة</b><p>ادفع فاتورة الكهرباء أو المياه أو الدواء مباشرة للشركة</p></div>
+            <div><div className="num" style={redBtn}>3</div><b>تأكيد وطمأنينة</b><p>نأكد سداد الفاتورة ونطمن العائلة</p></div>
           </div>
           <p className="values2">تكافل • تراحم • تعاضد • إيثار - قيمّنا اللي بتجمعنا</p>
         </div>
@@ -66,7 +66,7 @@ export default function Home() {
               <h3>{c.title}</h3>
               <p className="story">{c.story}</p>
               <div className="row"><span>المبلغ المطلوب</span><span className="price">{c.need} د.أ</span></div>
-              <button className="btn btn-red full" onClick={() => alert('شكرا لك! تواصل معنا لإتمام الدفع مباشرة للشركة - رقم الحالة: ' + c.id)}>سأتكفل بهذه الفاتورة ♥</button>
+              <button className="btn btn-red full" style={redBtn} onClick={() => alert('شكرا لك! تواصل معنا لإتمام الدفع مباشرة للشركة - رقم الحالة: ' + c.id)}>سأتكفل بهذه الفاتورة ♥</button>
             </div>
           ))}
         </div>
@@ -74,7 +74,7 @@ export default function Home() {
 
       <section className="section" id="faq">
         <div className="card"><h2>ارفع فاتورتك - نوصلك بفاعل خير</h2>
-          {!showForm && !sent && <button className="btn btn-red" style={{ marginTop: 16 }} onClick={() => setShowForm(true)}>ابدأ طلب المساعدة</button>}
+          {!showForm && !sent && <button className="btn btn-red" style={{ marginTop: 16, ...redBtn }} onClick={() => setShowForm(true)}>ابدأ طلب المساعدة</button>}
           {showForm && !sent && (
             <form className="form" style={{ marginTop: 16 }} onSubmit={(e) => { e.preventDefault(); setSent(true) }}>
               <label>الاسم الكامل</label><input required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="مثال: أحمد محمد" />
@@ -82,7 +82,7 @@ export default function Home() {
               <label>نوع الفاتورة</label><select value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}><option>كهرباء</option><option>مياه</option><option>دواء</option></select>
               <label>مبلغ الفاتورة (د.أ)</label><input required value={form.amount} onChange={e => setForm({ ...form, amount: e.target.value })} placeholder="مثال: 85" />
               <label>اشرح حالتك باختصار</label><textarea rows={3} value={form.desc} onChange={e => setForm({ ...form, desc: e.target.value })} placeholder="اكتب قصتك هنا..." />
-              <button className="btn btn-red full" type="submit">إرسال الطلب</button>
+              <button className="btn btn-red full" style={redBtn} type="submit">إرسال الطلب</button>
             </form>
           )}
           {sent && <p className="ok">✅ تم استلام طلبك! سنتواصل معك قريبا للتحقق من الفاتورة.</p>}
