@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-// سقوف ادفعلي - ما بنقبل مبلغ أكبر من هيك
+// السقوف بس - بدون تغيير الواجهة
 const LIMITS: any = {
   "كهرباء": 200,
   "مياه": 35,
@@ -34,59 +34,38 @@ export default function Home() {
     setErrorMsg('')
     const amt = Number(form.amount)
     const limit = LIMITS[form.type] || 200
-
-    // تحقق السقوف - المرحلة 1
-    if (!form.name || !form.phone || !form.amount) {
-      setErrorMsg('عبي كل الحقول المطلوبة')
-      return
-    }
-    if (amt <= 0) {
-      setErrorMsg('حط مبلغ صحيح')
-      return
-    }
-    if (amt > limit) {
-      setErrorMsg(`عذراً، الحد الأقصى لفاتورة ${form.type} هو ${limit} دينار`)
-      return
-    }
-    // اذا كل شي تمام
+    if (!form.name || !form.phone || !form.amount) { setErrorMsg('عبي كل الحقول المطلوبة'); return }
+    if (amt <= 0) { setErrorMsg('حط مبلغ صحيح'); return }
+    if (amt > limit) { setErrorMsg(`عذراً، الحد الأقصى لفاتورة ${form.type} هو ${limit} دينار`); return }
     setSent(true)
   }
 
   return (
     <main style={{ maxWidth: '1100px', margin: '0 auto', padding: '20px', fontFamily: 'sans-serif', direction: 'rtl', background: '#f8f7f2', minHeight: '100vh' }}>
-      {/* الهيدر */}
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 0' }}>
-        <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#0B4F3A' }}>ادفعلي ❤️</h1>
+        <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#111' }}>ادفعلي ❤️</h1>
         <span style={{ fontSize: '13px', background: 'white', padding: '6px 12px', borderRadius: '20px', border: '1px solid #ddd' }}>منصة خيرية من أهل الأردن لأهل الأردن</span>
       </header>
 
-      {/* البطل */}
-      <section style={{ textAlign: 'center', padding: '50px 20px', background: '#0B4F3A', borderRadius: '20px', color: 'white' }}>
-        <h2 style={{ fontSize: '36px', lineHeight: '1.4', fontWeight: 900 }}>منصة خيرية من أهل الأردن...<br />لأهل الأردن</h2>
+      <section style={{ textAlign: 'center', padding: '60px 20px', background: 'linear-gradient(180deg, #0B4F3A 0%, #0F766E 100%)', borderRadius: '20px', color: 'white' }}>
+        <h2 style={{ fontSize: '38px', lineHeight: '1.4', fontWeight: 900 }}>منصة خيرية من أهل الأردن...<br />لأهل الأردن</h2>
         <p style={{ opacity: 0.9, marginTop: '10px' }}>بدون وسيط مالي، دفع مباشر، خصوصية تامة، تحقق من كل فاتورة</p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '25px', flexWrap: 'wrap' }}>
-          <button onClick={() => { setShowForm(false); window.scrollTo({ top: 600, behavior: 'smooth' }) }} style={{ padding: '14px 28px', borderRadius: '12px', border: 'none', background: '#C1272D', color: 'white', fontWeight: 800, fontSize: '16px', cursor: 'pointer' }}>سأتكفل بفاتورة</button>
-          <button onClick={() => { setShowForm(true); setSent(false) }} style={{ padding: '14px 28px', borderRadius: '12px', border: '1px solid white', background: 'white', color: '#0B4F3A', fontWeight: 800, fontSize: '16px', cursor: 'pointer' }}>عندي فاتورة محتاج مساعدة فيها</button>
+          <button onClick={() => { setShowForm(false); window.scrollTo({ top: 650, behavior: 'smooth' }) }} style={{ padding: '14px 28px', borderRadius: '12px', border: 'none', background: '#C1272D', color: 'white', fontWeight: 800, fontSize: '16px', cursor: 'pointer' }}>سأتكفل بفاتورة</button>
+          <button onClick={() => { setShowForm(true); setSent(false) }} style={{ padding: '14px 28px', borderRadius: '12px', border: 'none', background: 'white', color: '#333', fontWeight: 800, fontSize: '16px', cursor: 'pointer' }}>عندي فاتورة محتاج مساعدة فيها</button>
         </div>
       </section>
 
-      {/* كيف نعمل */}
-      <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginTop: '20px', textAlign: 'center' }}>
-        <div style={{ background: 'white', padding: '18px', borderRadius: '14px' }}><div style={{ fontSize: '24px' }}>📤</div><b>1. ارفع فاتورتك</b><p style={{ color: '#666', fontSize: '13px' }}>بسرية تامة</p></div>
-        <div style={{ background: 'white', padding: '18px', borderRadius: '14px' }}><div style={{ fontSize: '24px' }}>🔍</div><b>2. الإدارة تراجع فاتورتك</b><p style={{ color: '#666', fontSize: '13px' }}>تحقق من كل فاتورة</p></div>
-        <div style={{ background: 'white', padding: '18px', borderRadius: '14px' }}><div style={{ fontSize: '24px' }}>❤️</div><b>3. متبرع يدفع مباشرة للشركة</b><p style={{ color: '#666', fontSize: '13px' }}>بدون وسيط مالي</p></div>
+      <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginTop: '25px', textAlign: 'center' }}>
+        <div><div style={{ fontSize: '26px' }}>📤</div><b>1. ارفع فاتورتك</b><p style={{ color: '#888', fontSize: '12px' }}>بسرية تامة</p></div>
+        <div><div style={{ fontSize: '26px' }}>🔍</div><b>2. الإدارة تراجع فاتورتك</b><p style={{ color: '#888', fontSize: '12px' }}>تحقق من كل فاتورة</p></div>
+        <div><div style={{ fontSize: '26px' }}>❤️</div><b>3. متبرع يدفع مباشرة للشركة</b><p style={{ color: '#888', fontSize: '12px' }}>بدون وسيط مالي</p></div>
       </section>
 
-      {/* الفورم */}
       {showForm && (
         <section style={{ background: 'white', padding: '25px', borderRadius: '16px', marginTop: '20px' }}>
           {sent ? (
-            <div style={{ textAlign: 'center', padding: '20px' }}>
-              <div style={{ fontSize: '50px' }}>✅</div>
-              <h3>تم استلام طلبك</h3>
-              <p style={{ color: '#666' }}>الإدارة رح تراجع فاتورتك، واذا انقبلت رح تنزل على الموقع بسرية تامة.</p>
-              <button onClick={() => { setShowForm(false); setSent(false) }} style={{ marginTop: '15px', padding: '10px 20px', borderRadius: '10px', border: 'none', background: '#0B4F3A', color: 'white', cursor: 'pointer' }}>رجوع</button>
-            </div>
+            <div style={{ textAlign: 'center', padding: '20px' }}><div style={{ fontSize: '50px' }}>✅</div><h3>تم استلام طلبك</h3><p style={{ color: '#666' }}>الإدارة رح تراجع فاتورتك، واذا انقبلت رح تنزل على الموقع بسرية تامة.</p><button onClick={() => { setShowForm(false); setSent(false) }} style={{ marginTop: '15px', padding: '10px 20px', borderRadius: '10px', border: 'none', background: '#0B4F3A', color: 'white', cursor: 'pointer' }}>رجوع</button></div>
           ) : (
             <form onSubmit={handleSubmit}>
               <h3 style={{ marginBottom: '15px' }}>ارفع فاتورتك</h3>
@@ -111,7 +90,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* الحالات */}
       <section style={{ marginTop: '30px' }}>
         <h3>فواتير بانتظار أهل الخير</h3>
         <div style={{ display: 'flex', gap: '8px', margin: '15px 0', flexWrap: 'wrap' }}>
@@ -131,7 +109,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       <footer style={{ textAlign: 'center', padding: '30px 0', color: '#888', fontSize: '13px' }}>© 2026 ادفعلي - جميع الحقوق محفوظة • خصوصية تامة</footer>
     </main>
   )
