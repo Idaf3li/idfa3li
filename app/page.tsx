@@ -16,14 +16,14 @@ export default function Home() {
   return (
     <div dir="rtl" style={{ fontFamily: "sans-serif", background: "#fff", minHeight: "100vh" }}>
       <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "15px 30px", background: "white", borderBottom: "1px solid #eee" }}>
-        <div style={{ fontWeight: "bold", fontSize: 24, color: "#0f2e2e" }}>ادفع لي ♥</div>
+        <div style={{ fontWeight: "bold", fontSize: 24, color: "#2E3319" }}>ادفع لي ♥</div>
         <nav style={{ display: "flex", gap: 20, color: "#444" }}>
           <span>من نحن</span><span>الحالات</span><span>كيف نعمل</span><span>الأمان</span><span>أسئلة</span>
         </nav>
         <button style={{ background: "#dc2645", color: "white", border: "none", padding: "10px 18px", borderRadius: 10, fontWeight: "bold" }}>ارفع فاتورتك</button>
       </header>
 
-      <section style={{ background: "linear-gradient(180deg,#0F2E1F 0%,#14532D 40%,#166534 70%,#1E7A4A 100%)", color: "white", textAlign: "center", padding: "60px 20px" }}>
+      <section style={{ background: "linear-gradient(180deg,#232A12 0%,#34391E 35%,#4A5226 65%,#5A632E 100%)", color: "white", textAlign: "center", padding: "60px 20px" }}>
         <span style={{ background: "rgba(255,255,255,0.15)", padding: "6px 18px", borderRadius: 20, fontSize: 14 }}>ادفع لي</span>
         <h1 style={{ fontSize: 42, lineHeight: 1.4, margin: "20px 0 10px" }}>منصة خيرية من أهل الأردن... لأهل الأردن<br />من نشامى الوطن... لأبناء الوطن</h1>
         <p style={{ opacity: 0.9 }}>تكفل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للشركة.<br />لا أموال تمر عبر المنصة.</p>
@@ -41,14 +41,14 @@ export default function Home() {
           {cases.map((c) => (
             <div key={c.title} style={{ background: "white", padding: 20, borderRadius: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.08)", textAlign: "center", border: "1px solid #eee" }}>
               <h3 style={{ fontSize: 22 }}>{c.title}</h3>
-              <p style={{ fontWeight: "bold", color: "#0f766e" }}>{c.limit}</p>
+              <p style={{ fontWeight: "bold", color: "#4A5226" }}>{c.limit}</p>
               <p style={{ color: "#555" }}>{c.desc}</p>
-              <button onClick={() => setSelected(c)} style={{ background: "#0f766e", color: "white", border: "none", padding: "10px 20px", borderRadius: 10, width: "100%", cursor: "pointer" }}>تكفل بهذه الحالة</button>
+              <button onClick={() => setSelected(c)} style={{ background: "#4A5226", color: "white", border: "none", padding: "10px 20px", borderRadius: 10, width: "100%", cursor: "pointer" }}>تكفل بهذه الحالة</button>
             </div>
           ))}
         </div>
         {selected && (
-          <div style={{ background: "#f0fdfa", marginTop: 20, padding: 20, borderRadius: 16, textAlign: "center", border: "1px solid #99f6e4" }}>
+          <div style={{ background: "#F5F5E8", marginTop: 20, padding: 20, borderRadius: 16, textAlign: "center", border: "1px solid #C5C99A" }}>
             <h3>كفالة: {selected.title} - {selected.limit}</h3>
             <p>شكراً لك! تواصل معنا على واتساب لإتمام الكفالة.</p>
             <a href="https://wa.me/962790000000" target="_blank" style={{ background: "#25D366", color: "white", padding: "10px 20px", borderRadius: 10, textDecoration: "none", display: "inline-block" }}>تواصل واتساب</a>
