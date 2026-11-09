@@ -15,17 +15,19 @@ export default function Home() {
   const [selected, setSelected] = useState<any>(null);
   return (
     <div dir="rtl" style={{ fontFamily: "sans-serif", background: "#fff", minHeight: "100vh" }}>
-      {/* الهيدر القديم */}
+      {/* الهيدر الصح - ادفع لي يمين، ارفع فاتورتك يسار */}
       <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "15px 30px", background: "white", borderBottom: "1px solid #eee" }}>
-        <button style={{ background: "#e11d48", color: "white", border: "none", padding: "10px 18px", borderRadius: 10, fontWeight: "bold" }}>ارفع فاتورتك</button>
+        {/* أول واحد بالـ RTL بيطلع على اليمين، عشان هيك حطينا ادفع لي هون */}
+        <div style={{ fontWeight: "bold", fontSize: 24, color: "#0f2e2e" }}>ادفع لي ♥</div>
         <nav style={{ display: "flex", gap: 20, color: "#444" }}>
           <span>من نحن</span><span>الحالات</span><span>كيف نعمل</span><span>الأمان</span><span>أسئلة</span>
         </nav>
-        <div style={{ fontWeight: "bold", fontSize: 24 }}>ادفع لي ♥</div>
+        {/* آخر واحد بيطلع على اليسار */}
+        <button style={{ background: "#dc2645", color: "white", border: "none", padding: "10px 18px", borderRadius: 10, fontWeight: "bold" }}>ارفع فاتورتك</button>
       </header>
 
-      {/* البطل - نفس تصميمك القديم */}
-      <section style={{ background: "linear-gradient(135deg,#0f766e,#0e9aa7)", color: "white", textAlign: "center", padding: "60px 20px" }}>
+      {/* البطل - رجعنا اللون الأصلي تركوازي غامق، مش أزرق */}
+      <section style={{ background: "linear-gradient(180deg,#0f766e 0%,#0d9488 55%,#149a8a 100%)", color: "white", textAlign: "center", padding: "60px 20px" }}>
         <span style={{ background: "rgba(255,255,255,0.15)", padding: "6px 18px", borderRadius: 20, fontSize: 14 }}>ادفع لي</span>
         <h1 style={{ fontSize: 42, lineHeight: 1.4, margin: "20px 0 10px" }}>منصة خيرية من أهل الأردن... لأهل الأردن<br />من نشامى الوطن... لأبناء الوطن</h1>
         <p style={{ opacity: 0.9 }}>تكفل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للشركة.<br />لا أموال تمر عبر المنصة.</p>
@@ -36,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* الـ 7 حالات - إضافة جديدة تحت التصميم القديم */}
+      {/* الـ 7 حالات */}
       <main style={{ maxWidth: 1100, margin: "0 auto", padding: "30px 20px" }}>
         <h2 style={{ textAlign: "center", fontSize: 28 }}>الحالات المتاحة للكفالة</h2>
         <p style={{ textAlign: "center", color: "#666" }}>7 حالات فقط - كل حالة لها سقف ودفع مباشر للجهة المستحقة</p>
@@ -50,7 +52,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-
         {selected && (
           <div style={{ background: "#f0fdfa", marginTop: 20, padding: 20, borderRadius: 16, textAlign: "center", border: "1px solid #99f6e4" }}>
             <h3>كفالة: {selected.title} - {selected.limit}</h3>
