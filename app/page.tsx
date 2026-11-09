@@ -145,13 +145,25 @@ export default function Home() {
           <p style={{ color: "#666", fontFamily: FONT, marginTop: 10, lineHeight: 1.8 }}>نعمل وفق آلية واضحة تضمن وصول الدعم لمستحقيه، وتحمي خصوصية جميع الأطراف.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 16, marginTop: 30, textAlign: "center" }}>
             <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
-              <div style={{ width: 76, height: 76, borderRadius: "50%", background: RED, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 4px 12px rgba(217,45,32,.3)" }}><span style={{ fontSize: 38, color: BLUE, fontWeight: "900", lineHeight: 1 }}>➔</span></div>
+              <div style={{ width: 76, height: 76, borderRadius: "50%", background: "white", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}><svg width="64" height="64" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="white" stroke="#D92D20" strokeWidth="2" /><circle cx="50" cy="50" r="36" fill="#D92D20" /><circle cx="50" cy="50" r="26" fill="white" /><circle cx="50" cy="50" r="16" fill="#D92D20" /><circle cx="50" cy="50" r="7" fill="white" /><g transform="translate(52,42) rotate(45)"><rect x="-3" y="-22" width="6" height="24" fill="#2563EB" rx="2" /><path d="M -8 -24 L 0 -34 L 8 -24 Z" fill="#2563EB" /><path d="M -6 -2 L 0 6 L 6 -2 Z" fill="#60A5FA" /></g></svg></div>
               <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>دفع مباشر دون وسيط</h3>
               <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>يتم تسديد الفاتورة من المتكفل مباشرة إلى الجهة المستحقة، من خلال القنوات المعتمدة، دون أن تمر أي أموال عبر المنصة.</p>
             </div>
-            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}><div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>🛡️</div><h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>تحقق مسبق من الحالات</h3><p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>لا يتم نشر أي حالة قبل مراجعة مستنداتها الرسمية والتأكد من صحتها وأحقيتها للدعم.</p></div>
-            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}><div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>🔒</div><h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>حماية الخصوصية</h3><p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>تحفظ بيانات العائلات بسرية تامة، ولا يتم عرض الفاتورة إلا للمتكفل بعد اختياره للحالة.</p></div>
-            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}><div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>❤️</div><h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>حفظ كرامة المستفيد</h3><p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>لا يتم نشر أسماء أو صور العائلات، ونحرص على أن يصل الدعم بطريقة تحفظ كرامتهم.</p></div>
+            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>✅</div>
+              <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>تحقق موثق</h3>
+              <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>يتم مراجعة كل فاتورة والتأكد منها قبل النشر، لضمان وصول الدعم لمستحقيه.</p>
+            </div>
+            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>🔒</div>
+              <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>خصوصية كاملة</h3>
+              <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>تُحفظ بيانات المستفيد بسرية تامة، ولا تظهر أي معلومات شخصية.</p>
+            </div>
+            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>💛</div>
+              <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>بدون أي رسوم</h3>
+              <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>المنصة لا تأخذ أي عمولة أو رسوم، ويصل الدعم كاملا للمستحق.</p>
+            </div>
           </div>
         </div>
       </section>
