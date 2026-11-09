@@ -6,14 +6,14 @@ const RED = "#D92D20";
 const FONT = "Tahoma, Arial, sans-serif";
 
 const cases = [
-  { title: "كهرباء", limit: "حتى 200 دينار", desc: "فاتورة كهرباء" },
-  { title: "مياه", limit: "حتى 35 دينار", desc: "فاتورة مياه" },
-  { title: "دواء", limit: "حتى 100 دينار", desc: "يشمل حليب أطفال وحفاضات - فاتورة صيدلية" },
-  { title: "علاج", limit: "حتى 300 دينار", desc: "تكاليف علاج وعمليات - تقرير طبي" },
-  { title: "متعثر", limit: "حتى 300 دينار", desc: "مساعدة لمتعثر مالي - إثبات تعثر" },
-  { title: "قسط طالب", limit: "حتى 500 دينار", desc: "قسط جامعة أو مدرسة - وصل القسط" },
-  { title: "إيجار منزل", limit: "حتى 250 دينار", desc: "إيجار منزل لعائلة محتاجة - عقد إيجار مصدق" },
-  { title: "حالة أخرى", limit: "يتم تحديدها بعد المراجعة", desc: "لديك حالة غير مذكورة؟ ارفع فاتورتك واشرح حالتك، وسيتم مراجعتها والموافقة عليها أو رفضها" },
+  { title: "كهرباء", icon: "⚡", limit: "حتى 200 دينار", desc: "فاتورة كهرباء" },
+  { title: "مياه", icon: "💧", limit: "حتى 35 دينار", desc: "فاتورة مياه" },
+  { title: "دواء", icon: "💊", limit: "حتى 100 دينار", desc: "يشمل حليب أطفال وحفاضات - فاتورة صيدلية" },
+  { title: "علاج", icon: "🏥", limit: "حتى 300 دينار", desc: "تكاليف علاج وعمليات - تقرير طبي" },
+  { title: "متعثر", icon: "🤝", limit: "حتى 300 دينار", desc: "مساعدة لمتعثر مالي - إثبات تعثر" },
+  { title: "قسط طالب", icon: "🎓", limit: "حتى 500 دينار", desc: "قسط جامعة أو مدرسة - وصل القسط" },
+  { title: "إيجار منزل", icon: "🏠", limit: "حتى 250 دينار", desc: "إيجار منزل لعائلة محتاجة - عقد إيجار مصدق" },
+  { title: "حالة أخرى", icon: "📄", limit: "يتم تحديدها بعد المراجعة", desc: "لديك حالة غير مذكورة؟ ارفع فاتورتك واشرح حالتك، وسيتم مراجعتها والموافقة عليها أو رفضها" },
 ];
 
 const faqs = [
@@ -79,7 +79,8 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 16, marginTop: 20 }}>
           {cases.map((c) => (
             <div key={c.title} style={{ background: c.title === "حالة أخرى" ? "#FFF7F7" : "white", padding: 20, borderRadius: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.08)", textAlign: "center", border: c.title === "حالة أخرى" ? "1px dashed #D92D20" : "1px solid #eee" }}>
-              <h3 style={{ fontSize: 22, fontFamily: FONT }}>{c.title}</h3>
+              <div style={{ fontSize: 42, background: "#F0F5F1", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px" }}>{c.icon}</div>
+              <h3 style={{ fontSize: 22, fontFamily: FONT, margin: 0 }}>{c.title}</h3>
               <p style={{ fontWeight: "bold", color: OLIVE, fontFamily: FONT }}>{c.limit}</p>
               <p style={{ color: "#555", fontFamily: FONT }}>{c.desc}</p>
               {c.title === "حالة أخرى" ? (
@@ -103,10 +104,10 @@ export default function Home() {
       <section id="how" style={{ background: "#F8F8F8", padding: "50px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: 28, fontFamily: FONT }}>كيف نعمل</h2>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginTop: 20 }}>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>1. رفع الفاتورة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يرفع صاحب الحاجة فاتورته عبر زر ارفع فاتورتك</p></div>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>2. التحقق والمراجعة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يتم التحقق من الفاتورة والتأكد من صحتها قبل النشر</p></div>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>3. اختيار الحالة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يختار المتكفل الحالة المناسبة ويطلع على فاتورتها</p></div>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>4. الدفع المباشر</h3><p style={{ fontFamily: FONT, color: "#555" }}>يدفع المتكفل بنفسه للجهة المستحقة، عبر إي فواتيركم أو البنك</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><div style={{ fontSize: 36 }}>📤</div><h3 style={{ fontFamily: FONT }}>1. رفع الفاتورة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يرفع صاحب الحاجة فاتورته عبر زر ارفع فاتورتك</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><div style={{ fontSize: 36 }}>🔍</div><h3 style={{ fontFamily: FONT }}>2. التحقق والمراجعة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يتم التحقق من الفاتورة والتأكد من صحتها قبل النشر</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><div style={{ fontSize: 36 }}>👤</div><h3 style={{ fontFamily: FONT }}>3. اختيار الحالة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يختار المتكفل الحالة المناسبة ويطلع على فاتورتها</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><div style={{ fontSize: 36 }}>🎯</div><h3 style={{ fontFamily: FONT }}>4. الدفع المباشر</h3><p style={{ fontFamily: FONT, color: "#555" }}>يدفع المتكفل بنفسه للجهة المستحقة، عبر إي فواتيركم أو البنك</p></div>
         </div>
         <p style={{ marginTop: 20, color: "#888", fontFamily: FONT, fontSize: 14 }}>لا يتم عرض الفاتورة للعامة أبداً، حفاظاً على خصوصية العائلات.</p>
       </section>
@@ -115,20 +116,24 @@ export default function Home() {
         <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontSize: 28, fontFamily: FONT }}>الأمان والموثوقية</h2>
           <p style={{ color: "#666", fontFamily: FONT, marginTop: 10, lineHeight: 1.8 }}>نعمل وفق آلية واضحة تضمن وصول الدعم لمستحقيه، وتحمي خصوصية جميع الأطراف.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 16, marginTop: 30, textAlign: "right" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 16, marginTop: 30, textAlign: "center" }}>
             <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>🎯</div>
               <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>دفع مباشر دون وسيط</h3>
               <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>يتم تسديد الفاتورة من المتكفل مباشرة إلى الجهة المستحقة، من خلال القنوات المعتمدة، دون أن تمر أي أموال عبر المنصة.</p>
             </div>
             <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>🛡️</div>
               <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>تحقق مسبق من الحالات</h3>
               <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>لا يتم نشر أي حالة قبل مراجعة مستنداتها الرسمية والتأكد من صحتها وأحقيتها للدعم.</p>
             </div>
             <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>🔒</div>
               <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>حماية الخصوصية</h3>
               <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>تُحفظ بيانات العائلات بسرية تامة، ولا يتم عرض الفاتورة إلا للمتكفل بعد اختياره للحالة.</p>
             </div>
             <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <div style={{ fontSize: 42, background: "white", width: 72, height: 72, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>❤️</div>
               <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>حفظ كرامة المستفيد</h3>
               <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>لا يتم نشر أسماء أو صور العائلات، ونحرص على أن يصل الدعم بطريقة تحفظ كرامتهم.</p>
             </div>
