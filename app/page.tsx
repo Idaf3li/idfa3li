@@ -13,12 +13,14 @@ const cases = [
   { title: "متعثر", limit: "حتى 300 دينار", desc: "مساعدة لمتعثر مالي - إثبات تعثر" },
   { title: "قسط طالب", limit: "حتى 500 دينار", desc: "قسط جامعة أو مدرسة - وصل القسط" },
   { title: "إيجار منزل", limit: "حتى 250 دينار", desc: "إيجار منزل لعائلة محتاجة - عقد إيجار مصدق" },
+  { title: "حالة أخرى", limit: "يتم تحديدها بعد المراجعة", desc: "لديك حالة غير مذكورة؟ ارفع فاتورتك واشرح حالتك، وسيتم مراجعتها والموافقة عليها أو رفضها" },
 ];
 
 const faqs = [
   { q: "كيف أتكفل بفاتورة؟", a: "اختر الحالة، تواصل معنا عبر واتساب، وادفع بنفسك مباشرة للجهة المستحقة عبر إي فواتيركم أو البنك، لا تمر أي أموال عبر المنصة." },
   { q: "كيف يتم الدفع؟", a: "يتم الدفع مباشرة من المتكفل للجهة المستحقة، من خلال إي فواتيركم أو عبر البنوك المعتمدة." },
   { q: "كيف تتأكدون من أحقية الحالة؟", a: "يتم التحقق من كل حالة من خلال المستندات الرسمية: فاتورة، تقرير طبي، عقد إيجار، أو وصل قسط، ويتم التأكد من صحتها قبل النشر." },
+  { q: "حالتي غير موجودة ضمن الحالات، ماذا أفعل؟", a: "اختر حالة أخرى، ارفع فاتورتك واشرح حالتك، وسيتم مراجعتها والموافقة عليها أو رفضها حسب الشروط." },
   { q: "لدي فاتورة، كيف أرفعها؟", a: "اضغط على زر ارفع فاتورتك في الأعلى، وسيتم فتح نموذج جديد لإرسال الفاتورة ومراجعتها." },
   { q: "من يطلع على الفاتورة؟", a: "يطلع عليها فقط فريق التحقق والمتكفل الذي اختار الحالة. لا يتم عرض الفاتورة للعامة أبداً." },
 ];
@@ -73,14 +75,18 @@ export default function Home() {
 
       <main id="cases" style={{ maxWidth: 1100, margin: "0 auto", padding: "10px 20px 30px" }}>
         <h2 style={{ textAlign: "center", fontSize: 28, fontFamily: FONT }}>الحالات المتاحة للكفالة</h2>
-        <p style={{ textAlign: "center", color: "#666", fontFamily: FONT }}>7 حالات فقط - لكل حالة سقف محدد ودفع مباشر للجهة المستحقة</p>
+        <p style={{ textAlign: "center", color: "#666", fontFamily: FONT }}>7 حالات رئيسية، بالإضافة إلى إمكانية رفع أي حالة أخرى للمراجعة - لكل حالة سقف محدد ودفع مباشر للجهة المستحقة</p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 16, marginTop: 20 }}>
           {cases.map((c) => (
-            <div key={c.title} style={{ background: "white", padding: 20, borderRadius: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.08)", textAlign: "center", border: "1px solid #eee" }}>
+            <div key={c.title} style={{ background: c.title === "حالة أخرى" ? "#FFF7F7" : "white", padding: 20, borderRadius: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.08)", textAlign: "center", border: c.title === "حالة أخرى" ? "1px dashed #D92D20" : "1px solid #eee" }}>
               <h3 style={{ fontSize: 22, fontFamily: FONT }}>{c.title}</h3>
               <p style={{ fontWeight: "bold", color: OLIVE, fontFamily: FONT }}>{c.limit}</p>
               <p style={{ color: "#555", fontFamily: FONT }}>{c.desc}</p>
-              <button onClick={() => setSelected(c)} style={{ background: OLIVE, color: "white", border: "none", padding: "10px 20px", borderRadius: 10, width: "100%", cursor: "pointer", fontFamily: FONT }}>تكفل بهذه الحالة</button>
+              {c.title === "حالة أخرى" ? (
+                <button onClick={openUpload} style={{ background: RED, color: "white", border: "none", padding: "10px 20px", borderRadius: 10, width: "100%", cursor: "pointer", fontFamily: FONT }}>ارفع حالتك للمراجعة</button>
+              ) : (
+                <button onClick={() => setSelected(c)} style={{ background: OLIVE, color: "white", border: "none", padding: "10px 20px", borderRadius: 10, width: "100%", cursor: "pointer", fontFamily: FONT }}>تكفل بهذه الحالة</button>
+              )}
             </div>
           ))}
         </div>
