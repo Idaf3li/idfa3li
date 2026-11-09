@@ -1,90 +1,55 @@
-// app/page.tsx - idfa3li - ادفعلي - Beta
-// القائمة النهائية: 7 حالات
+"use client";
+import { useState } from "react";
 
 const cases = [
-  {
-    id: "electricity",
-    title: "كهرباء",
-    cap: 200,
-    desc: "فاتورة كهرباء - الدفع مباشر لشركة الكهرباء",
-    proof: "فاتورة كهرباء",
-  },
-  {
-    id: "water",
-    title: "مياه",
-    cap: 35,
-    desc: "فاتورة مياه - الدفع مباشر لشركة المياه",
-    proof: "فاتورة مياه",
-  },
-  {
-    id: "medicine",
-    title: "دواء",
-    cap: 100,
-    desc: "يشمل حليب أطفال + حفاضات - فاتورة صيدلية",
-    proof: "فاتورة صيدلية",
-  },
-  {
-    id: "treatment",
-    title: "علاج",
-    cap: 300,
-    desc: "تقرير طبي + فاتورة علاج - الدفع مباشر للجهة الطبية",
-    proof: "تقرير طبي + فاتورة",
-  },
-  {
-    id: "distressed",
-    title: "متعثر",
-    cap: 300,
-    desc: "اثبات تعثر - الدفع مباشر للجهة المستحقة",
-    proof: "ورقة اثبات تعثر",
-  },
-  {
-    id: "student",
-    title: "قسط طالب",
-    cap: 500,
-    desc: "جامعة + تخصص + رقم جامعي + كشف قسط - الدفع مباشر للجامعة",
-    proof: "كشف قسط جامعي",
-  },
-  {
-    id: "rent",
-    title: "إيجار بيت",
-    cap: 250,
-    desc: "عقد إيجار - الدفع مباشر لصاحب البيت",
-    proof: "عقد إيجار + رقم صاحب البيت",
-  },
+  { title: "كهرباء", limit: "لحد 200 دينار", desc: "فاتورة كهرباء - الدفع مباشر لشركة الكهرباء", tag: "فاتورة كهرباء" },
+  { title: "مياه", limit: "لحد 35 دينار", desc: "فاتورة مياه - الدفع مباشر لشركة المياه", tag: "فاتورة مياه" },
+  { title: "دواء", limit: "لحد 100 دينار", desc: "يشمل حليب أطفال + حفاضات - فاتورة صيدلية", tag: "فاتورة صيدلية" },
+  { title: "علاج", limit: "لحد 300 دينار", desc: "تكاليف علاج وعمليات - تقرير طبي", tag: "تقرير طبي" },
+  { title: "متعثر", limit: "لحد 300 دينار", desc: "مساعدة لمتعثر مالي - إثبات تعثر", tag: "إثبات تعثر" },
+  { title: "قسط طالب", limit: "لحد 500 دينار", desc: "قسط جامعة / مدرسة - وصل القسط", tag: "وصل قسط" },
+  { title: "إيجار بيت", limit: "لحد 250 دينار", desc: "إيجار منزل لعائلة محتاجة - عقد إيجار", tag: "عقد إيجار" },
 ];
 
 export default function Home() {
+  const [selected, setSelected] = useState<any>(null);
   return (
-    <main style={{ background: "#fff", minHeight: "100vh", direction: "rtl", fontFamily: "sans-serif" }}>
-      <header style={{ background: "#0B3D2E", color: "#fff", padding: "32px 20px", textAlign: "center" }}>
-        <h1 style={{ fontSize: "32px", margin: 0 }}>ادفعلي - idfa3li</h1>
-        <p style={{ margin: "12px 0 0", fontSize: "18px" }}>منصة خيرية من أهل الأردن... لأهل الأردن</p>
-        <p style={{ margin: "8px 0 0", opacity: 0.85 }}>خصوصية كاملة - لا فيديو - لا تشهير - دفع مباشر</p>
-        <button style={{ marginTop: "20px", background: "#fff", color: "#0B3D2E", border: "none", padding: "12px 28px", borderRadius: "12px", fontWeight: "bold", fontSize: "16px" }}>
-          اطلب المساعدة بسرية
-        </button>
+    <div dir="rtl" style={{ fontFamily: "sans-serif", background: "#f6f8f7", minHeight: "100vh" }}>
+      <header style={{ background: "#0f3d3e", color: "white", textAlign: "center", padding: "50px 20px" }}>
+        <h1 style={{ fontSize: 36, margin: 0 }}>ادفعلي - idfa3li</h1>
+        <p style={{ fontSize: 18, marginTop: 10 }}>منصة خيرية من أهل الأردن... لأهل الأردن</p>
+        <p style={{ opacity: 0.8 }}>خصوصية كاملة - لا فيديو - لا تشهير - دفع مباشر</p>
+        <button style={{ background: "white", color: "#0f3d3e", border: "none", padding: "12px 28px", borderRadius: 10, fontWeight: "bold", marginTop: 15, cursor: "pointer" }}>اطلب المساعدة بسرية</button>
       </header>
 
-      <section style={{ maxWidth: "900px", margin: "0 auto", padding: "24px 16px" }}>
-        <h2 style={{ textAlign: "center", color: "#0B3D2E" }}>الحالات المتاحة للكفالة</h2>
-        <p style={{ textAlign: "center", color: "#555" }}>7 حالات فقط - كل حالة لها سقف ودفع مباشر للجهة المستحقة</p>
+      <main style={{ maxWidth: 1100, margin: "0 auto", padding: 20 }}>
+        <h2 style={{ textAlign: "center" }}>الحالات المتاحة للكفالة</h2>
+        <p style={{ textAlign: "center", color: "#666" }}>7 حالات فقط - كل حالة لها سقف ودفع مباشر للجهة المستحقة</p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px", marginTop: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 16, marginTop: 20 }}>
           {cases.map((c) => (
-            <div key={c.id} style={{ border: "1px solid #e5e5e5", borderRadius: "16px", padding: "20px", background: "#fff" }}>
-              <h3 style={{ margin: "0 0 8px", color: "#0B3D2E", fontSize: "20px" }}>{c.title}</h3>
-              <div style={{ background: "#EAF5EF", color: "#0B3D2E", display: "inline-block", padding: "4px 12px", borderRadius: "20px", fontWeight: "bold", fontSize: "14px" }}>
-                لحد {c.cap} دينار
-              </div>
-              <p style={{ color: "#444", margin: "12px 0 6px", lineHeight: "1.6" }}>{c.desc}</p>
-              <p style={{ color: "#777", fontSize: "13px", margin: 0 }}>الاثبات المطلوب: {c.proof}</p>
-              <button style={{ marginTop: "14px", width: "100%", background: "#0B3D2E", color: "#fff", border: "none", padding: "11px", borderRadius: "10px", fontWeight: "bold" }}>
-                تكفل بهذه الحالة
-              </button>
+            <div key={c.title} style={{ background: "white", padding: 20, borderRadius: 16, boxShadow: "0 2px 10px rgba(0,0,0,0.06)", textAlign: "center" }}>
+              <h3 style={{ fontSize: 22 }}>{c.title}</h3>
+              <p style={{ fontWeight: "bold", color: "#0f766e" }}>{c.limit}</p>
+              <p style={{ color: "#555", minHeight: 40 }}>{c.desc}</p>
+              <span style={{ fontSize: 12, background: "#eef2f2", padding: "4px 10px", borderRadius: 20 }}>{c.tag}</span>
+              <br /><br />
+              <button onClick={() => setSelected(c)} style={{ background: "#0f766e", color: "white", border: "none", padding: "10px 20px", borderRadius: 10, cursor: "pointer", width: "100%" }}>تكفل بهذه الحالة</button>
             </div>
           ))}
         </div>
-      </section>
-    </main>
+
+        {selected && (
+          <div style={{ background: "white", marginTop: 20, padding: 20, borderRadius: 16, textAlign: "center" }}>
+            <h3>كفالة: {selected.title} - {selected.limit}</h3>
+            <p>شكراً لك! تواصل معنا على واتساب لإتمام الكفالة بشكل مباشر وآمن.</p>
+            <a href="https://wa.me/962790000000" target="_blank" style={{ background: "#25D366", color: "white", padding: "10px 20px", borderRadius: 10, textDecoration: "none", display: "inline-block" }}>تواصل واتساب</a>
+            <br /><br />
+            <button onClick={() => setSelected(null)}>إغلاق</button>
+          </div>
+        )}
+      </main>
+      <footer style={{ textAlign: "center", padding: 20, color: "#888" }}>من تشامي الوطن... لأبناء الوطن | ادفعلي © 2026</footer>
+    </div>
   );
 }
