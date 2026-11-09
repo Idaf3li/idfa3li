@@ -16,20 +16,20 @@ export default function Home() {
   return (
     <div dir="rtl" style={{ fontFamily: "sans-serif", background: "#fff", minHeight: "100vh" }}>
       <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "15px 30px", background: "white", borderBottom: "1px solid #eee" }}>
-        <div style={{ fontWeight: "bold", fontSize: 24, color: "#2E3319" }}>ادفع لي <span style={{ color: "#E11D48" }}>♥</span></div>
+        <div style={{ fontWeight: "bold", fontSize: 24, color: "#2E3319" }}>ادفع لي <span style={{ color: "#CC0000" }}>♥</span></div>
         <nav style={{ display: "flex", gap: 20, color: "#444" }}>
           <span>من نحن</span><span>الحالات</span><span>كيف نعمل</span><span>الأمان</span><span>أسئلة</span>
         </nav>
-        <button style={{ background: "#E11D48", color: "white", border: "none", padding: "10px 18px", borderRadius: 10, fontWeight: "bold" }}>ارفع فاتورتك</button>
+        <button style={{ background: "#CC0000", color: "white", border: "none", padding: "10px 18px", borderRadius: 10, fontWeight: "bold" }}>ارفع فاتورتك</button>
       </header>
 
-      <section style={{ background: "linear-gradient(180deg,#3F4A1E 0%,#556B2F 50%,#6B8E23 100%)", color: "white", textAlign: "center", padding: "60px 20px" }}>
+      <section style={{ background: "#3D4D1E", color: "white", textAlign: "center", padding: "60px 20px" }}>
         <span style={{ background: "rgba(255,255,255,0.15)", padding: "6px 18px", borderRadius: 20, fontSize: 14 }}>ادفع لي</span>
         <h1 style={{ fontSize: 42, lineHeight: 1.4, margin: "20px 0 10px" }}>منصة خيرية من أهل الأردن... لأهل الأردن<br />من نشامى الوطن... لأبناء الوطن</h1>
         <p style={{ opacity: 0.9 }}>تكفل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للشركة.<br />لا أموال تمر عبر المنصة.</p>
         <p style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>تكافل • تراحم • تعاضد • إيثار</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 450, margin: "25px auto 0" }}>
-          <button style={{ background: "#E11D48", color: "white", border: "none", padding: "14px", borderRadius: 12, fontWeight: "bold", fontSize: 16 }}>♥ سأتكفل بفاتورة</button>
+          <button style={{ background: "#CC0000", color: "white", border: "none", padding: "14px", borderRadius: 12, fontWeight: "bold", fontSize: 16 }}>♥ سأتكفل بفاتورة</button>
           <button style={{ background: "transparent", color: "white", border: "1px solid white", padding: "14px", borderRadius: 12, fontWeight: "bold", fontSize: 16 }}>عندي فاتورة محتاج مساعدة فيها</button>
         </div>
       </section>
@@ -41,9 +41,9 @@ export default function Home() {
           {cases.map((c) => (
             <div key={c.title} style={{ background: "white", padding: 20, borderRadius: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.08)", textAlign: "center", border: "1px solid #eee" }}>
               <h3 style={{ fontSize: 22 }}>{c.title}</h3>
-              <p style={{ fontWeight: "bold", color: "#556B2F" }}>{c.limit}</p>
+              <p style={{ fontWeight: "bold", color: "#3D4D1E" }}>{c.limit}</p>
               <p style={{ color: "#555" }}>{c.desc}</p>
-              <button onClick={() => setSelected(c)} style={{ background: "#556B2F", color: "white", border: "none", padding: "10px 20px", borderRadius: 10, width: "100%", cursor: "pointer" }}>تكفل بهذه الحالة</button>
+              <button onClick={() => setSelected(c)} style={{ background: "#3D4D1E", color: "white", border: "none", padding: "10px 20px", borderRadius: 10, width: "100%", cursor: "pointer" }}>تكفل بهذه الحالة</button>
             </div>
           ))}
         </div>
