@@ -23,7 +23,7 @@ export default function Home() {
         <button style={{ background: "#dc2645", color: "white", border: "none", padding: "10px 18px", borderRadius: 10, fontWeight: "bold" }}>ارفع فاتورتك</button>
       </header>
 
-      <section style={{ background: "linear-gradient(180deg,#053B38 0%,#07554F 45%,#0A6B5E 100%)", color: "white", textAlign: "center", padding: "60px 20px" }}>
+      <section style={{ background: "linear-gradient(180deg,#0F2E1F 0%,#14532D 40%,#166534 70%,#1E7A4A 100%)", color: "white", textAlign: "center", padding: "60px 20px" }}>
         <span style={{ background: "rgba(255,255,255,0.15)", padding: "6px 18px", borderRadius: 20, fontSize: 14 }}>ادفع لي</span>
         <h1 style={{ fontSize: 42, lineHeight: 1.4, margin: "20px 0 10px" }}>منصة خيرية من أهل الأردن... لأهل الأردن<br />من نشامى الوطن... لأبناء الوطن</h1>
         <p style={{ opacity: 0.9 }}>تكفل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للشركة.<br />لا أموال تمر عبر المنصة.</p>
