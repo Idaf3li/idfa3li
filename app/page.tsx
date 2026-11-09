@@ -6,21 +6,21 @@ const RED = "#D92D20";
 const FONT = "Tahoma, Arial, sans-serif";
 
 const cases = [
-  { title: "كهرباء", limit: "لحد 200 دينار", desc: "فاتورة كهرباء - الدفع مباشر لشركة الكهرباء" },
-  { title: "مياه", limit: "لحد 35 دينار", desc: "فاتورة مياه - الدفع مباشر لشركة المياه" },
-  { title: "دواء", limit: "لحد 100 دينار", desc: "يشمل حليب أطفال + حفاضات - فاتورة صيدلية" },
-  { title: "علاج", limit: "لحد 300 دينار", desc: "تكاليف علاج وعمليات - تقرير طبي" },
-  { title: "متعثر", limit: "لحد 300 دينار", desc: "مساعدة لمتعثر مالي - إثبات تعثر" },
-  { title: "قسط طالب", limit: "لحد 500 دينار", desc: "قسط جامعة / مدرسة - وصل القسط" },
-  { title: "إيجار بيت", limit: "لحد 250 دينار", desc: "إيجار منزل لعائلة محتاجة - عقد إيجار مصدق" },
+  { title: "كهرباء", limit: "حتى 200 دينار", desc: "فاتورة كهرباء - الدفع مباشرة لشركة الكهرباء" },
+  { title: "مياه", limit: "حتى 35 دينار", desc: "فاتورة مياه - الدفع مباشرة لشركة المياه" },
+  { title: "دواء", limit: "حتى 100 دينار", desc: "يشمل حليب أطفال وحفاضات - فاتورة صيدلية" },
+  { title: "علاج", limit: "حتى 300 دينار", desc: "تكاليف علاج وعمليات - تقرير طبي" },
+  { title: "متعثر", limit: "حتى 300 دينار", desc: "مساعدة لمتعثر مالي - إثبات تعثر" },
+  { title: "قسط طالب", limit: "حتى 500 دينار", desc: "قسط جامعة أو مدرسة - وصل القسط" },
+  { title: "إيجار منزل", limit: "حتى 250 دينار", desc: "إيجار منزل لعائلة محتاجة - عقد إيجار مصدق" },
 ];
 
 const faqs = [
-  { q: "كيف أتكفل بفاتورة؟", a: "اختار الحالة، تواصل واتساب، وادفع بنفسك مباشرة للشركة، لا أموال تمر عبر المنصة." },
-  { q: "هل المنصة بتاخد عمولة؟", a: "لا أبداً، 0% عمولة، كل دينار بروح للفاتورة." },
-  { q: "كيف بتعرفوا إنو الحالة محتاجة؟", a: "كل حالة معها إثبات: فاتورة، تقرير طبي، عقد إيجار، أو وصل قسط، ونتحقق منها بالداش بورد قبل النشر." },
-  { q: "أنا عندي فاتورة، كيف أرفعها؟", a: "اكبس ارفع فاتورتك فوق، بفتحلك تبويب جديد، ابعت الفاتورة واتساب ونتحقق منها." },
-  { q: "مين بشوف الفاتورة؟", a: "بس الأدمن والمتكفل اللي اختار الحالة. الفاتورة ما بتنعرض للعامة أبداً." },
+  { q: "كيف أتكفل بفاتورة؟", a: "اختر الحالة، تواصل معنا عبر واتساب، وادفع بنفسك مباشرة للجهة المستحقة، لا تمر أي أموال عبر المنصة." },
+  { q: "هل تتقاضى المنصة عمولة؟", a: "لا أبداً، 0% عمولة، يصل المبلغ كاملاً للفاتورة." },
+  { q: "كيف تتأكدون من أحقية الحالة؟", a: "يتم التحقق من كل حالة من خلال المستندات الرسمية: فاتورة، تقرير طبي، عقد إيجار، أو وصل قسط، ويتم التأكد من صحتها قبل النشر." },
+  { q: "لدي فاتورة، كيف أرفعها؟", a: "اضغط على زر ارفع فاتورتك في الأعلى، وسيتم فتح نموذج جديد لإرسال الفاتورة ومراجعتها." },
+  { q: "من يطلع على الفاتورة؟", a: "يطلع عليها فقط فريق التحقق والمتكفل الذي اختار الحالة. لا يتم عرض الفاتورة للعامة أبداً." },
 ];
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   const openUpload = () => {
-    window.open("https://wa.me/962790000000?text=مرحبا، بدي ارفع فاتورة للمساعدة", "_blank");
+    window.open("https://wa.me/962790000000?text=مرحبا، أرغب في رفع فاتورة للمساعدة", "_blank");
   };
 
   return (
@@ -58,22 +58,22 @@ export default function Home() {
       <section id="home" style={{ background: OLIVE, color: "white", textAlign: "center", padding: "60px 20px" }}>
         <span style={{ background: "rgba(255,255,255,0.15)", padding: "6px 18px", borderRadius: 20, fontSize: 14, fontFamily: FONT }}>ادفع لي</span>
         <h1 style={{ fontSize: 42, lineHeight: 1.4, margin: "20px 0 10px", fontFamily: FONT }}>منصة خيرية من أهل الأردن... لأهل الأردن<br />من نشامى الوطن... لأبناء الوطن</h1>
-        <p style={{ opacity: 0.9, fontFamily: FONT }}>تكفل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للشركة.<br />لا أموال تمر عبر المنصة.</p>
+        <p style={{ opacity: 0.9, fontFamily: FONT }}>تكفل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للجهة المستحقة.<br />لا تمر أي أموال عبر المنصة.</p>
         <p style={{ fontWeight: "bold", fontSize: 20, marginTop: 15, fontFamily: FONT }}>تكافل • تراحم • تعاضد • إيثار</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 450, margin: "25px auto 0" }}>
           <button onClick={() => go("cases")} style={{ background: RED, color: "white", border: "none", padding: "14px", borderRadius: 12, fontWeight: "bold", fontSize: 16, fontFamily: FONT, cursor: "pointer" }}>♥ سأتكفل بفاتورة</button>
-          <button onClick={openUpload} style={{ background: "transparent", color: "white", border: "1px solid white", padding: "14px", borderRadius: 12, fontWeight: "bold", fontSize: 16, fontFamily: FONT, cursor: "pointer" }}>عندي فاتورة محتاج مساعدة فيها</button>
+          <button onClick={openUpload} style={{ background: "transparent", color: "white", border: "1px solid white", padding: "14px", borderRadius: 12, fontWeight: "bold", fontSize: 16, fontFamily: FONT, cursor: "pointer" }}>لدي فاتورة وأحتاج المساعدة فيها</button>
         </div>
       </section>
 
       <section id="about" style={{ maxWidth: 900, margin: "0 auto", padding: "50px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: 28, fontFamily: FONT }}>من نحن</h2>
-        <p style={{ color: "#555", lineHeight: 1.8, fontFamily: FONT, marginTop: 10 }}>ادفع لي منصة خيرية أردنية، بتربط بين متكفل كريم وعائلة محتاجة. المتكفل بيدفع الفاتورة بنفسو للشركة، بدون وسيط وبدون عمولة. هدفنا: ما حدا تنقطع عنو الكهربا والمي، وما حدا ينام جوعان أو بدون دوا.</p>
+        <p style={{ color: "#555", lineHeight: 1.8, fontFamily: FONT, marginTop: 10 }}>ادفع لي منصة خيرية أردنية، تربط بين متكفل كريم وعائلة محتاجة. يدفع المتكفل الفاتورة بنفسه للجهة المستحقة، دون وسيط ودون عمولة. هدفنا: ألا تنقطع الكهرباء والمياه عن أي منزل، وألا ينام أحد جائعاً أو دون دواء.</p>
       </section>
 
       <main id="cases" style={{ maxWidth: 1100, margin: "0 auto", padding: "10px 20px 30px" }}>
         <h2 style={{ textAlign: "center", fontSize: 28, fontFamily: FONT }}>الحالات المتاحة للكفالة</h2>
-        <p style={{ textAlign: "center", color: "#666", fontFamily: FONT }}>7 حالات فقط - كل حالة لها سقف ودفع مباشر للجهة المستحقة</p>
+        <p style={{ textAlign: "center", color: "#666", fontFamily: FONT }}>7 حالات فقط - لكل حالة سقف محدد ودفع مباشر للجهة المستحقة</p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 16, marginTop: 20 }}>
           {cases.map((c) => (
             <div key={c.title} style={{ background: "white", padding: 20, borderRadius: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.08)", textAlign: "center", border: "1px solid #eee" }}>
@@ -87,8 +87,8 @@ export default function Home() {
         {selected && (
           <div style={{ background: "#F0F5F1", marginTop: 20, padding: 20, borderRadius: 16, textAlign: "center", border: "1px solid #BFD3C6" }}>
             <h3 style={{ fontFamily: FONT }}>كفالة: {selected.title} - {selected.limit}</h3>
-            <p style={{ fontFamily: FONT }}>شكراً لك! تواصل معنا على واتساب لإتمام الكفالة.</p>
-            <a href="https://wa.me/962790000000" target="_blank" style={{ background: "#25D366", color: "white", padding: "10px 20px", borderRadius: 10, textDecoration: "none", display: "inline-block", fontFamily: FONT }}>تواصل واتساب</a>
+            <p style={{ fontFamily: FONT }}>شكراً لك! تواصل معنا عبر واتساب لإتمام الكفالة.</p>
+            <a href="https://wa.me/962790000000" target="_blank" style={{ background: "#25D366", color: "white", padding: "10px 20px", borderRadius: 10, textDecoration: "none", display: "inline-block", fontFamily: FONT }}>تواصل عبر واتساب</a>
             <br /><br /><button onClick={() => setSelected(null)} style={{ fontFamily: FONT }}>إغلاق</button>
           </div>
         )}
@@ -97,17 +97,17 @@ export default function Home() {
       <section id="how" style={{ background: "#F8F8F8", padding: "50px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: 28, fontFamily: FONT }}>كيف نعمل</h2>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginTop: 20 }}>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>1. المحتاج برفع فاتورتو</h3><p style={{ fontFamily: FONT, color: "#555" }}>من زر ارفع فاتورتك، بتبويب جديد</p></div>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>2. الأدمن بتحقق</h3><p style={{ fontFamily: FONT, color: "#555" }}>من الداش بورد بنتأكد من الفاتورة قبل ما تنزل</p></div>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>3. المتكفل بختار حالة</h3><p style={{ fontFamily: FONT, color: "#555" }}>بس المتكفل بشوف الفاتورة بعد ما يختار</p></div>
-          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>4. الدفع مباشرة</h3><p style={{ fontFamily: FONT, color: "#555" }}>المتكفل بيدفع للشركة بنفسو، بدون وسيط</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>1. رفع الفاتورة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يرفع صاحب الحاجة فاتورته عبر زر ارفع فاتورتك</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>2. التحقق والمراجعة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يتم التحقق من الفاتورة والتأكد من صحتها قبل النشر</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>3. اختيار الحالة</h3><p style={{ fontFamily: FONT, color: "#555" }}>يختار المتكفل الحالة المناسبة ويطلع على فاتورتها</p></div>
+          <div style={{ background: "white", padding: 20, borderRadius: 12, width: 250 }}><h3 style={{ fontFamily: FONT }}>4. الدفع المباشر</h3><p style={{ fontFamily: FONT, color: "#555" }}>يدفع المتكفل بنفسه للجهة المستحقة، دون وسيط</p></div>
         </div>
-        <p style={{ marginTop: 20, color: "#888", fontFamily: FONT, fontSize: 14 }}>الفاتورة ما بتنعرض للعامة أبداً، بس للأدمن والمتكفل.</p>
+        <p style={{ marginTop: 20, color: "#888", fontFamily: FONT, fontSize: 14 }}>لا يتم عرض الفاتورة للعامة أبداً، حفاظاً على خصوصية العائلات.</p>
       </section>
 
       <section id="safety" style={{ maxWidth: 900, margin: "0 auto", padding: "50px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: 28, fontFamily: FONT }}>الأمان</h2>
-        <p style={{ color: "#555", lineHeight: 1.8, fontFamily: FONT, marginTop: 10 }}>✔ لا أموال تمر عبر المنصة<br />✔ الفاتورة بتنرفع من المحتاج وبتتأكد من الأدمن بالداش بورد<br />✔ الفاتورة ما بشوفها إلا المتكفل بعد ما يختار الحالة<br />✔ الدفع مباشرة للجهة المستحقة<br />✔ ما بننشر أسماء ولا صور العائلات</p>
+        <p style={{ color: "#555", lineHeight: 1.8, fontFamily: FONT, marginTop: 10 }}>✔ لا تمر أي أموال عبر المنصة<br />✔ يتم التحقق من كل فاتورة والتأكد من صحتها قبل النشر<br />✔ لا يطلع على الفاتورة إلا المتكفل بعد اختياره للحالة<br />✔ الدفع مباشرة للجهة المستحقة<br />✔ لا يتم نشر أسماء أو صور العائلات</p>
       </section>
 
       <section id="faq" style={{ maxWidth: 800, margin: "0 auto", padding: "20px 20px 50px" }}>
@@ -120,7 +120,7 @@ export default function Home() {
         ))}
       </section>
 
-      <footer style={{ textAlign: "center", padding: 20, color: "#888", fontFamily: FONT }}>من نشامى الوطن... لأبناء الوطن | ادفعلي © 2026</footer>
+      <footer style={{ textAlign: "center", padding: 20, color: "#888", fontFamily: FONT }}>من نشامى الوطن... لأبناء الوطن | ادفع لي © 2026</footer>
     </div>
   );
 }
