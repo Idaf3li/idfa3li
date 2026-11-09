@@ -1,25 +1,90 @@
-"use client";
-import { useState } from "react";
-export default function Home(){
-const [done,setDone]=useState(false);
-const [filter,setFilter]=useState("الكل");
-const cases=[
-{name:"أم محمد - إربد",type:"كهرباء",amount:"85 دينار",story:"أرملة وتعيل 3 أطفال، تراكمت عليها فاتورة الكهرباء وتحتاج من يتكفل بها.",tag:"عاجلة"},
-{name:"أبو أحمد - الزرقاء",type:"مياه",amount:"62 دينار",story:"عامل مياومة توقف عن العمل بسبب إصابة، فاتورة المياه مهددة بالقطع.",tag:"مياه"},
-{name:"أم يوسف - عمّان",type:"دواء",amount:"120 دينار",story:"مريضة سكري وضغط، لا تستطيع شراء دواء الشهر.",tag:"دواء"},
-{name:"عائلة أبو خالد - الكرك",type:"كهرباء",amount:"95 دينار",story:"عائلة من 6 أفراد، الأب مريض، والفاتورة تراكمت لشهرين.",tag:"عاجلة"},
+// app/page.tsx - idfa3li - ادفعلي - Beta
+// القائمة النهائية: 7 حالات
+
+const cases = [
+  {
+    id: "electricity",
+    title: "كهرباء",
+    cap: 200,
+    desc: "فاتورة كهرباء - الدفع مباشر لشركة الكهرباء",
+    proof: "فاتورة كهرباء",
+  },
+  {
+    id: "water",
+    title: "مياه",
+    cap: 35,
+    desc: "فاتورة مياه - الدفع مباشر لشركة المياه",
+    proof: "فاتورة مياه",
+  },
+  {
+    id: "medicine",
+    title: "دواء",
+    cap: 100,
+    desc: "يشمل حليب أطفال + حفاضات - فاتورة صيدلية",
+    proof: "فاتورة صيدلية",
+  },
+  {
+    id: "treatment",
+    title: "علاج",
+    cap: 300,
+    desc: "تقرير طبي + فاتورة علاج - الدفع مباشر للجهة الطبية",
+    proof: "تقرير طبي + فاتورة",
+  },
+  {
+    id: "distressed",
+    title: "متعثر",
+    cap: 300,
+    desc: "اثبات تعثر - الدفع مباشر للجهة المستحقة",
+    proof: "ورقة اثبات تعثر",
+  },
+  {
+    id: "student",
+    title: "قسط طالب",
+    cap: 500,
+    desc: "جامعة + تخصص + رقم جامعي + كشف قسط - الدفع مباشر للجامعة",
+    proof: "كشف قسط جامعي",
+  },
+  {
+    id: "rent",
+    title: "إيجار بيت",
+    cap: 250,
+    desc: "عقد إيجار - الدفع مباشر لصاحب البيت",
+    proof: "عقد إيجار + رقم صاحب البيت",
+  },
 ];
-const filtered=filter==="الكل"?cases:cases.filter(c=>c.type===filter);
-return(<>
-<header className="header"><div className="logo"><i>♥</i> ادفع لي</div><nav className="nav"><a href="#about">من نحن</a><a href="#cases">الحالات</a><a href="#how">كيف نعمل</a><a href="#safety">الأمان</a><a href="#faq">أسئلة</a></nav><button className="btn btn-red" onClick={()=>document.getElementById("form")?.scrollIntoView({behavior:"smooth"})}>ارفع فاتورتك</button></header>
-<section className="hero"><div className="pill">ادفع لي</div><h1>منصة خيرية من أهل الأردن... لأهل الأردن<br/>من نشامى الوطن... لأبناء الوطن</h1><p>تكفّل بفاتورة كهرباء أو مياه أو دواء لعائلة محتاجة، وادفعها بنفسك مباشرة للشركة.<br/>لا أموال تمر عبر المنصة.</p><div className="values">تكافل • تراحم • تعاضد • إيثار</div><div className="cta"><button className="btn btn-red big" onClick={()=>document.getElementById("cases")?.scrollIntoView({behavior:"smooth"})}>سأتكفل بفاتورة ♥</button><button className="btn btn-outline big" onClick={()=>document.getElementById("form")?.scrollIntoView({behavior:"smooth"})}>عندي فاتورة محتاج مساعدة فيها</button></div></section>
-<section className="trust"><div><span>🤝</span><b>بدون وسيط مالي</b><p>أنت تدفع مباشرة للشركة، لا نلمس قرش واحد.</p></div><div><span>⚡</span><b>دفع مباشر</b><p>تختار الحالة وتدفع فاتورتها بنفسك.</p></div><div><span>✅</span><b>تحقق من كل فاتورة</b><p>كل حالة موثّقة وفاتورتها حقيقية.</p></div><div><span>🔒</span><b>خصوصية تامة</b><p>بيانات العائلات محمية ولا تظهر للعامة.</p></div></section>
-<section id="about" className="section card"><h2>من نحن</h2><p className="sub">ادفع لي منصة خيرية أردنية، هدفها ستر العائلات المتعثرة في فواتير الكهرباء والمياه والدواء. نحن نؤمن أن الخير في أهل الأردن، وأن التكافل والتراحم والتعاضد والإيثار هي قيمنا.</p><p className="values2">تكافل • تراحم • تعاضد • إيثار</p></section>
-<section id="how" className="section card"><h2>كيف نعمل؟</h2><div className="steps"><div><div className="num">1</div><b>ارفع فاتورتك</b><p>صاحب الحاجة يرفع فاتورته مع إثبات.</p></div><div><div className="num">2</div><b>نتحقق منها</b><p>فريقنا يتحقق من صحة الفاتورة والحالة.</p></div><div><div className="num">3</div><b>أهل الخير يتكفلون</b><p>المتبرع يدفع مباشرة للشركة ويستر العائلة.</p></div></div></section>
-<section id="cases" className="section"><h2>الحالات المتاحة</h2><p className="sub">اختر حالة وتكفل بفاتورتها مباشرة.</p><div className="filters">{["الكل","كهرباء","مياه","دواء"].map(f=><button key={f} className={filter===f?"on":""} onClick={()=>setFilter(f)}>{f}</button>)}</div><div className="grid">{filtered.map((c,i)=><div key={i} className="case"><div className="case-top"><span className="tag">{c.tag}</span><span className="muted">{c.name}</span></div><h3>فاتورة {c.type} - {c.amount}</h3><p className="story">{c.story}</p><div className="row"><b className="price">{c.amount}</b><button className="btn btn-red" onClick={()=>alert("شكراً لتكافلك! تواصل معنا لإتمام الدفع مباشرة للشركة.")}>سأتكفل بها</button></div></div>)}</div></section>
-<section id="safety" className="section card"><h2>الأمان</h2><p className="sub">لا نجمع أموالاً أبداً. لا حسابات بنكية للمنصة. الدفع يتم منك مباشرة لشركة الكهرباء / المياه / الصيدلية، والفاتورة تُرفع بعد التحقق فقط.</p></section>
-<section id="faq" className="section card"><h2>أسئلة شائعة</h2><p><b>هل المنصة تأخذ عمولة؟</b><br/><span className="sub">لا، مجاناً 100% بدون عمولة وبدون وسيط مالي.</span></p><br/><p><b>كيف أتأكد أن الفاتورة حقيقية؟</b><br/><span className="sub">كل فاتورة يتم التحقق منها قبل النشر.</span></p><br/><p><b>هل تصل أموالي للعائلة؟</b><br/><span className="sub">أنت تدفع مباشرة للشركة، لا تمر أموال عبرنا.</span></p></section>
-<section id="form" className="section card form"><h2>ارفع فاتورتك</h2><p className="sub">املأ النموذج، وسنتواصل معك بعد التحقق.</p>{!done?<><label>الاسم</label><input placeholder="مثال: أم محمد"/><label>نوع الفاتورة</label><select><option>كهرباء</option><option>مياه</option><option>دواء</option></select><label>قيمة الفاتورة</label><input placeholder="مثال: 85 دينار"/><label>قصتك باختصار</label><textarea rows={3} placeholder="اكتب وضعك هنا..."/><button className="btn btn-red big full" onClick={()=>setDone(true)}>إرسال الطلب</button></>:<p className="ok">✅ تم استلام طلبك، جزاك الله خيراً، سنتواصل معك قريباً.</p>}</section>
-<footer>ادفع لي - منصة خيرية من أهل الأردن لأهل الأردن<br/>تكافل • تراحم • تعاضد • إيثار</footer>
-</>)
+
+export default function Home() {
+  return (
+    <main style={{ background: "#fff", minHeight: "100vh", direction: "rtl", fontFamily: "sans-serif" }}>
+      <header style={{ background: "#0B3D2E", color: "#fff", padding: "32px 20px", textAlign: "center" }}>
+        <h1 style={{ fontSize: "32px", margin: 0 }}>ادفعلي - idfa3li</h1>
+        <p style={{ margin: "12px 0 0", fontSize: "18px" }}>منصة خيرية من أهل الأردن... لأهل الأردن</p>
+        <p style={{ margin: "8px 0 0", opacity: 0.85 }}>خصوصية كاملة - لا فيديو - لا تشهير - دفع مباشر</p>
+        <button style={{ marginTop: "20px", background: "#fff", color: "#0B3D2E", border: "none", padding: "12px 28px", borderRadius: "12px", fontWeight: "bold", fontSize: "16px" }}>
+          اطلب المساعدة بسرية
+        </button>
+      </header>
+
+      <section style={{ maxWidth: "900px", margin: "0 auto", padding: "24px 16px" }}>
+        <h2 style={{ textAlign: "center", color: "#0B3D2E" }}>الحالات المتاحة للكفالة</h2>
+        <p style={{ textAlign: "center", color: "#555" }}>7 حالات فقط - كل حالة لها سقف ودفع مباشر للجهة المستحقة</p>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px", marginTop: "20px" }}>
+          {cases.map((c) => (
+            <div key={c.id} style={{ border: "1px solid #e5e5e5", borderRadius: "16px", padding: "20px", background: "#fff" }}>
+              <h3 style={{ margin: "0 0 8px", color: "#0B3D2E", fontSize: "20px" }}>{c.title}</h3>
+              <div style={{ background: "#EAF5EF", color: "#0B3D2E", display: "inline-block", padding: "4px 12px", borderRadius: "20px", fontWeight: "bold", fontSize: "14px" }}>
+                لحد {c.cap} دينار
+              </div>
+              <p style={{ color: "#444", margin: "12px 0 6px", lineHeight: "1.6" }}>{c.desc}</p>
+              <p style={{ color: "#777", fontSize: "13px", margin: 0 }}>الاثبات المطلوب: {c.proof}</p>
+              <button style={{ marginTop: "14px", width: "100%", background: "#0B3D2E", color: "#fff", border: "none", padding: "11px", borderRadius: "10px", fontWeight: "bold" }}>
+                تكفل بهذه الحالة
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
 }
