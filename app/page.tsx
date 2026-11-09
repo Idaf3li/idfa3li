@@ -111,9 +111,29 @@ export default function Home() {
         <p style={{ marginTop: 20, color: "#888", fontFamily: FONT, fontSize: 14 }}>لا يتم عرض الفاتورة للعامة أبداً، حفاظاً على خصوصية العائلات.</p>
       </section>
 
-      <section id="safety" style={{ maxWidth: 900, margin: "0 auto", padding: "50px 20px", textAlign: "center" }}>
-        <h2 style={{ fontSize: 28, fontFamily: FONT }}>الأمان</h2>
-        <p style={{ color: "#555", lineHeight: 1.8, fontFamily: FONT, marginTop: 10 }}>✔ لا تمر أي أموال عبر المنصة<br />✔ يتم التحقق من كل فاتورة والتأكد من صحتها قبل النشر<br />✔ لا يطلع على الفاتورة إلا المتكفل بعد اختياره للحالة<br />✔ الدفع مباشرة للجهة المستحقة عبر إي فواتيركم أو البنك<br />✔ لا يتم نشر أسماء أو صور العائلات</p>
+      <section id="safety" style={{ background: "white", padding: "60px 20px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{ fontSize: 28, fontFamily: FONT }}>الأمان والموثوقية</h2>
+          <p style={{ color: "#666", fontFamily: FONT, marginTop: 10, lineHeight: 1.8 }}>نعمل وفق آلية واضحة تضمن وصول الدعم لمستحقيه، وتحمي خصوصية جميع الأطراف.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 16, marginTop: 30, textAlign: "right" }}>
+            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>دفع مباشر دون وسيط</h3>
+              <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>يتم تسديد الفاتورة من المتكفل مباشرة إلى الجهة المستحقة، من خلال القنوات المعتمدة، دون أن تمر أي أموال عبر المنصة.</p>
+            </div>
+            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>تحقق مسبق من الحالات</h3>
+              <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>لا يتم نشر أي حالة قبل مراجعة مستنداتها الرسمية والتأكد من صحتها وأحقيتها للدعم.</p>
+            </div>
+            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>حماية الخصوصية</h3>
+              <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>تُحفظ بيانات العائلات بسرية تامة، ولا يتم عرض الفاتورة إلا للمتكفل بعد اختياره للحالة.</p>
+            </div>
+            <div style={{ background: "#F8F8F8", padding: 24, borderRadius: 16 }}>
+              <h3 style={{ fontFamily: FONT, fontSize: 18, color: OLIVE }}>حفظ كرامة المستفيد</h3>
+              <p style={{ fontFamily: FONT, color: "#555", lineHeight: 1.8, marginTop: 8 }}>لا يتم نشر أسماء أو صور العائلات، ونحرص على أن يصل الدعم بطريقة تحفظ كرامتهم.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="faq" style={{ maxWidth: 800, margin: "0 auto", padding: "20px 20px 50px" }}>
